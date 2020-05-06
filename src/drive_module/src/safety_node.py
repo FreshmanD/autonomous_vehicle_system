@@ -8,28 +8,6 @@ from threading import Thread #imsosorry
 import pdb
 import numpy as np
 
-"""
-Author: Ariel Anders & Corey Walsh
-This program implements a simple safety node based on laser
-scan data.
-# Single scan from a planar laser range-finder
-Header header
-# stamp: The acquisition time of the first ray in the scan.
-# frame_id: The laser is assumed to spin around the positive Z axis
-# (counterclockwise, if Z is up) with the zero angle forward along the x axis
-float32 angle_min # start angle of the scan [rad]
-float32 angle_max # end angle of the scan [rad]
-float32 angle_increment # angular distance between measurements [rad]
-float32 time_increment # time between measurements [seconds] - if your scanner
-# is moving, this will be used in interpolating position of 3d points
-float32 scan_time # time between scans [seconds]
-float32 range_min # minimum range value [m]
-float32 range_max # maximum range value [m]
-float32[] ranges # range data [m] (Note: values < range_min or > range_max should be discarded)
-float32[] intensities # intensity data [device-specific units]. If your
-# device does not provide intensities, please leave the array empty.
-"""
-
 MIN_FRONT_DIST = 1.0 # meters
 FAN_ANGLE = 15.0 # angle that is considered the front
 N_BINS = 19
@@ -58,8 +36,6 @@ class Safety():
 
             if np.any(self.parsed_data['front'][:,0] < MIN_FRONT_DIST):
                 rospy.loginfo("stoping!")
-                # this is overkill to specify the message, but it doesn't hurt
-                # to be overly explicit
                 drive_msg_stamped = AckermannDriveStamped()
                 drive_msg = AckermannDrive()
                 drive_msg.speed = 0.0
@@ -70,7 +46,6 @@ class Safety():
                 drive_msg_stamped.drive = drive_msg
                 self.pub.publish(drive_msg_stamped)
             
-            # don't spin too fast
             rospy.sleep(.1)
 
     def lidarCB(self, msg):
@@ -97,10 +72,6 @@ class Safety():
         ranges = values[(values > msg.range_min) & (values < msg.range_max)]
         angles = self.angles[(values > msg.range_min) & (values < msg.range_max)]
 
-        # Compute average range for each bin 
-        #   - this is a linear time algorithm which scans through all scan ranges 
-        #     assigning each range to the correct bin for the corresponding angle
-        #     works because the angles array is sorted
         self.averages[:,0] = 0
         self.averages[:,2] = 0
         bin_num = 0
