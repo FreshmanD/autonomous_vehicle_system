@@ -88,6 +88,8 @@ class DynamicPlot():
 
 class WallFollow():
     def __init__(self, direction):
+        self.vel_sub = rospy.Subscriber("/vehicle_control_ackermann",\
+                AckermannDriveStamped, self.vel_sub_cb, queue_size =1)
         if direction not in [RIGHT, LEFT]:
             rospy.loginfo("incorect %s wall selected.  choose left or right")
             rospy.signal_shutdown()
@@ -132,6 +134,9 @@ class WallFollow():
                 self.viz_loop()
                 rospy.sleep(0.1)
 
+    def vel_sub_cb(self, data):
+        SPEED = data.drive.speed
+
     def publish_line(self):
         # find the two points that intersect between the fan angle lines and the found y=mx+c line
         x0 = self.c / (np.tan(FAN_ANGLE) - self.m)
@@ -168,6 +173,18 @@ class WallFollow():
             drive_msg.steering_angle_velocity = 0
             drive_msg_stamped.drive = drive_msg
             self.pub.publish(drive_msg_stamped)
+
+            if(SPEED == 0):
+                drive_msg_stamped = AckermannDriveStamped()
+                drive_msg = AckermannDrive()
+                drive_msg.speed = 0.0
+                drive_msg.steering_angle = 0.0
+                drive_msg.acceleration = 0
+                drive_msg.jerk = 0
+                drive_msg.steering_angle_velocity = 0
+                drive_msg_stamped.drive = drive_msg
+                self.pub.publish(drive_msg_stamped)
+                rospy.sleep(5000)
 
             # don't spin too fast
             rospy.sleep(1.0/PUBLISH_RATE)

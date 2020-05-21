@@ -127,6 +127,9 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/nvidia/cmpe295_ws/build/gtest/cmake_install.cmake")
   include("/home/nvidia/cmpe295_ws/build/razor_imu_9dof/cmake_install.cmake")
+  include("/home/nvidia/cmpe295_ws/build/drive_module/cmake_install.cmake")
+  include("/home/nvidia/cmpe295_ws/build/particle_filter/cmake_install.cmake")
+  include("/home/nvidia/cmpe295_ws/build/pses_odometry/cmake_install.cmake")
   include("/home/nvidia/cmpe295_ws/build/ydlidar_ros_driver/cmake_install.cmake")
 
 endif()

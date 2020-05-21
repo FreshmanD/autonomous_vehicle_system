@@ -1,0 +1,8 @@
+prefix=/home/nvidia/cmpe295_ws/install
+
+Name: pses_odometry
+Description: Description of pses_odometry
+Version: 0.1.1
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

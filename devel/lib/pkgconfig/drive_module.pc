@@ -1,0 +1,8 @@
+prefix=/home/nvidia/cmpe295_ws/devel
+
+Name: drive_module
+Description: Description of drive_module
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
