@@ -13,17 +13,13 @@ processing.
 # Implementation - Medium Posts #
 Detailed implementation please see Medium post:
 
-1. [Jetson TX2 Autonomous Vehicle System Configuration and Setup - I ](https://link.medium.com/VHcLwZaqK8)
-2. [Jetson TX2 Autonomous Vehicle System Configuration and Setup - II ](https://link.medium.com/VHcLwZaqK8)
+1. [Jetson TX2 Autonomous Vehicle System Configuration and Setup - I](https://link.medium.com/VHcLwZaqK8)
+2. [Jetson TX2 Autonomous Vehicle System Configuration and Setup - II](https://link.medium.com/VHcLwZaqK8)
 
 # Pitch Videos #
-**One minute pitch:**
-
-[![Watch the video](https://img.youtube.com/vi/hOwBg0pyxcQ/2.jpg
-)](https://www.youtube.com/watch?v=hOwBg0pyxcQ)
-
-**Two and half minute showcase:**
+**Two and half minute showcase(click below picture):**
 
 [![Watch the video](https://img.youtube.com/vi/-O1tSdqKDIU/0.jpg
 )](https://www.youtube.com/watch?v=-O1tSdqKDIU)
 
+[One minute pitch YouTube link](https://www.youtube.com/watch?v=hOwBg0pyxcQ)
