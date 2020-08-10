@@ -14,7 +14,7 @@ processing.
 Detailed implementation please see Medium post:
 
 1. [Jetson TX2 Autonomous Vehicle System Configuration and Setup - I](https://link.medium.com/VHcLwZaqK8)
-2. [Jetson TX2 Autonomous Vehicle System Configuration and Setup - II](https://link.medium.com/VHcLwZaqK8)
+2. [Jetson TX2 Autonomous Vehicle System Configuration and Setup - II](https://link.medium.com/A3UAHU1rQ8)
 
 # Pitch Videos #
 **Two and half minute showcase(click below picture):**
