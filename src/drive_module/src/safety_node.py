@@ -1,12 +1,13 @@
 #!/usr/bin/env python
+
 import rospy
+import pdb
+import numpy as np
+
 from sensor_msgs.msg import LaserScan
 from std_msgs.msg import String, Header
 from ackermann_msgs.msg import AckermannDriveStamped, AckermannDrive
-from threading import Thread #imsosorry
-
-import pdb
-import numpy as np
+from threading import Thread
 
 MIN_FRONT_DIST = 1.0 # meters
 FAN_ANGLE = 15.0 # angle that is considered the front
@@ -26,6 +27,7 @@ class Safety():
                 AckermannDriveStamped, queue_size =1 )
         self.thread = Thread(target=self.drive)
         self.thread.start()
+        
         rospy.loginfo("safety node initialized")
 
     def drive(self):

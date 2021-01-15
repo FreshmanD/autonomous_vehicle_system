@@ -11,8 +11,8 @@
 ros::NodeHandle  nh;
 geometry_msgs::Twist msg;
 
-const int PWMpin1=5;//FTM1 timer Thrust ESC
-const int PWMpin2=20;//FTM0 timer Sterring Servo
+const int PWMpin1=5; //FTM1 timer Thrust ESC
+const int PWMpin2=20; //FTM0 timer Sterring Servo
 
 boolean back_lock = true;
 
@@ -84,8 +84,3 @@ void loop(){
   nh.spinOnce();
   delay(1);
 }
-
-// Execution code
-// roscore
-// rosrun rosserial_python serial_node.py /dev/ttyUSB2
-// rostopic pub servo std_msgs/UInt16

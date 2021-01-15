@@ -2,14 +2,15 @@
 
 import rospy
 import numpy as np
+import tf
+import matplotlib.pyplot as plt
+import time
 
 from std_msgs.msg import Header
 from visualization_msgs.msg import Marker
 from geometry_msgs.msg import Point, Pose, PoseStamped, PoseArray, Quaternion, PolygonStamped,Polygon, Point32, PoseWithCovarianceStamped, PointStamped
 import tf.transformations
-import tf
-import matplotlib.pyplot as plt
-import time
+
 
 class CircularArray(object):
     """ Simple implementation of a circular array.

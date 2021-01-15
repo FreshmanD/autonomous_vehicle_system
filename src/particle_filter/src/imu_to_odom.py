@@ -2,13 +2,14 @@
 
 import tf
 import rospy
-import numpy             as     np
-import matplotlib.pyplot as     plt
-from   sensor_msgs.msg   import Imu
-from   nav_msgs.msg      import Odometry
-from   math              import sin, cos, pi , radians , degrees
-from   std_msgs.msg      import Float32MultiArray
-from   geometry_msgs.msg import Point, Pose, Quaternion, Twist, Vector3
+import numpy as 
+import matplotlib.pyplot as plt
+
+from sensor_msgs.msg import Imu
+from nav_msgs.msg import Odometry
+from math import sin, cos, pi , radians , degrees
+from std_msgs.msg import Float32MultiArray
+from geometry_msgs.msg import Point, Pose, Quaternion, Twist, Vector3
 
 rospy.init_node('imu_to_odometry_node')
 odom_pub         = rospy.Publisher("odom_imu", Odometry, queue_size=50)
@@ -79,9 +80,7 @@ r = rospy.Rate(5.0)
 while not rospy.is_shutdown():
     current_time = rospy.Time.now()
     listener()
-                           #####################
-                           # nav_msgs.msg/odom #
-    ###################################################################   
+
     th      = init_yaw-yaw
     th      = radians(th)
     
@@ -136,5 +135,5 @@ while not rospy.is_shutdown():
     
     Pv_old = Pv_new
     P_old  = P_new 
-	###################################################################   
+
     r.sleep()
